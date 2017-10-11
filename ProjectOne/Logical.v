@@ -1,21 +1,29 @@
-module Logical(X,Y,Z,Out,NOut);
+module Logical(X,Y,AOut,OOut,EXOut,NOut);
 
 input [3:0] X,Y;
-input [7:0] Z;
-output [3:0] Out;
+output [3:0] AOut,OOut,EXOut;
 output [7:0] NOut;
 
-AND A1 (X,Y,Out);
-OR O1 (X,Y,Out);
-EXOR E1 (X,Y,Out);
 
-NOT N1 (Z,NOut);
+
+assign AOut  = X&Y;
+assign OOut  = X|Y;
+assign EXOut = X^Y;
+assign NOUT  = ~{X,Y};
+
+
+
 
 endmodule
 
+//MY_AND A1 (X,Y,Out);
+//MY_OR O1 (X,Y,Out);
+//MY_EXOR E1 (X,Y,Out);
+//MY_NOT N1 (Z,NOut);
 
+/*
 
-module AND(X,Y,Out);
+module MY_AND(X,Y,Out);
 input [3:0] X,Y;
 output [3:0] Out;
 
@@ -36,7 +44,7 @@ endmodule
 
 
 
-module OR(X,Y,Out);
+module MY_OR(X,Y,Out);
 input [3:0] X,Y;
 output [3:0] Out;
 
@@ -57,7 +65,7 @@ endmodule
 
 
 
-module EXOR(X,Y,Out);
+module MY_EXOR(X,Y,Out);
 input [3:0] X,Y;
 output [3:0] Out;
 
@@ -78,7 +86,7 @@ endmodule
 
 
 
-module NOT(Z,Out);
+module MY_NOT(Z,Out);
 input [7:0] Z;
 output [7:0] Out;
 
@@ -100,3 +108,4 @@ output Out;
 assign Out = ~Z;
 
 endmodule
+*/
